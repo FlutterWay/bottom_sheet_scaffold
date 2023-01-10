@@ -1,12 +1,13 @@
 # bottom_sheet_scaffold
 
-This package is built on [solid_bottom_sheet](https://pub.dev/packages/solid_bottom_sheet). The bottomsheet can be opened and closed by sliding the body of the scaffold.
+Slide your bottom sheet by sliding the body of the scaffold!. Very simple and customizable bottom sheet to implement.
 
 ## Features
 
 - Easy usage
 - Manage bottom sheet height by sliding the body of the scaffold
 - Draggable bottom sheet body
+- Full customizable
 - Listen bottom sheet status by using BottomSheetBuilder
 - No need to set any header to slide bottom sheet
 
@@ -213,3 +214,7 @@ class _MyHomePageState extends State<MyHomePage> {
 }
 
 ```
+
+## Thanks to
+
+This package is built on [solid_bottom_sheet](https://pub.dev/packages/solid_bottom_sheet). Thanks to him for allowing us to develop this package.
