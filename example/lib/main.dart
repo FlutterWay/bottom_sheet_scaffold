@@ -33,24 +33,14 @@ class _MyHomePageState extends State<MyHomePage> {
   Widget build(BuildContext context) {
     return BottomSheetScaffold(
       bottomSheet: DraggableBottomSheet(
-        autoSwipped: false,
         body: Container(
           height: 500,
-          color: Colors.red[200],
-          child: Column(
-            mainAxisAlignment: MainAxisAlignment.center,
-            children: const [
-              Text(
-                'Auto Swipping Closed',
-                style: TextStyle(fontSize: 36, color: Colors.black),
-              ),
-              Center(
-                  child: Text(
-                "Bottom Sheet",
-                style: TextStyle(fontSize: 24, color: Colors.white),
-              )),
-            ],
-          ),
+          color: Colors.red,
+          child: const Center(
+              child: Text(
+            "Bottom Sheet",
+            style: TextStyle(fontSize: 36, color: Colors.white),
+          )),
         ),
         header: Container(
           height: 60,

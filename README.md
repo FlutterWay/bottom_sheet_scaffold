@@ -12,7 +12,10 @@ This package is built on [solid_bottom_sheet](https://pub.dev/packages/solid_bot
 
 <div style="text-align: center">
     <table>
-        <tr>
+        <tr>       
+            <td style="text-align: center">
+                <img src="https://raw.githubusercontent.com/FlutterWay/files/main/bottom_sheet_scaffold_full_body.gif" width="200"/>
+            </td>
             <td style="text-align: center">
                 <img src="https://raw.githubusercontent.com/FlutterWay/files/main/bottom_sheet_scaffold_auto_swipping.gif" width="200"/>
             </td>            

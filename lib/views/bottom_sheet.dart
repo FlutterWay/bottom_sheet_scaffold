@@ -41,11 +41,7 @@ class DraggableBottomSheet extends StatelessWidget {
       autoSwiped: autoSwipped,
       maxHeight: maxHeight,
       minHeight: minHeight,
-      headerBar: header ??
-          Container(
-            height: 60,
-            color: Colors.black,
-          ),
+      headerBar: header ?? const SizedBox(),
       body: SingleChildScrollView(
         child: body,
       ),
