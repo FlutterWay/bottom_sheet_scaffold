@@ -2,12 +2,10 @@ library bottom_sheet_scaffold;
 
 import 'package:bottom_sheet_scaffold/controllers/bottom_sheet_controller.dart';
 import 'package:get/get.dart';
-export 'package:solid_bottom_sheet/src/smoothness.dart';
 export 'views/bottom_sheet.dart';
 export 'views/bottom_sheet_scaffold.dart';
 export 'views/draggable_area.dart';
 export 'views/bottom_sheet_builder.dart';
-export 'package:solid_bottom_sheet/solid_bottom_sheet.dart';
 
 class BottomSheetPanel {
   static void open() {

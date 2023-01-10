@@ -13,19 +13,51 @@ Slide your bottom sheet by sliding the body of the scaffold!. Very simple and cu
 
 <div style="text-align: center">
     <table>
-        <tr>       
+        <tr>
             <td style="text-align: center">
-                <img src="https://raw.githubusercontent.com/FlutterWay/files/main/bottom_sheet_scaffold_full_body.gif" width="200"/>
-            </td>
+                <table>
+                 <tr>
+                 	<h2>Auto Swipping</h2>
+                    <img src="https://raw.githubusercontent.com/FlutterWay/files/main/bottom_sheet_auto_swipping.gif" width="150" />
+                  </tr>
+                </table>
+            </td>   
             <td style="text-align: center">
-                <img src="https://raw.githubusercontent.com/FlutterWay/files/main/bottom_sheet_scaffold_auto_swipping.gif" width="200"/>
-            </td>            
+                <table>
+                 <tr>
+                 	<h2>Auto Swipping Closed</h2>
+                    <img src="https://raw.githubusercontent.com/FlutterWay/files/main/bottom_sheet_auto_swipping_closed.gif" width="150" />
+                  </tr>
+                </table>
+            </td>   
             <td style="text-align: center">
-                <img src="https://raw.githubusercontent.com/FlutterWay/files/main/bottom_sheet_scaffold_static.gif" width="200"/>
-            </td>
+                <table>
+                 <tr>
+                 	<h2>Gradient Opacity</h2>
+                    <img src="https://raw.githubusercontent.com/FlutterWay/files/main/bottom_sheet_gradient_opacity.gif" width="150" />
+                  </tr>
+                </table>
+            </td>   
+            <td style="text-align: center">
+                <table>
+                 <tr>
+                 	<h2>No Header</h2>
+                    <img src="https://raw.githubusercontent.com/FlutterWay/files/main/bottom_sheet_no_header.gif" width="150" />
+                  </tr>
+                </table>
+            </td>   
+            <td style="text-align: center">
+                <table>
+                 <tr>
+                 	<h2>No Barrier</h2>
+                    <img src="https://github.com/FlutterWay/files/blob/main/bottom_sheet_no_barrier.gif" width="150" />
+                  </tr>
+                </table>
+            </td>   
         </tr> 
     </table>
 </div>
+
 
 ## Usage
 

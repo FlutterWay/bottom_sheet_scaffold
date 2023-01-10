@@ -1,50 +1,64 @@
+import 'package:bottom_sheet_scaffold/bottom_sheet_scaffold.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
-import 'package:solid_bottom_sheet/solid_bottom_sheet.dart';
 import '../controllers/bottom_sheet_controller.dart';
 
 class DraggableBottomSheet extends StatelessWidget {
-  final Smoothness smoothness;
   final double maxHeight, minHeight;
-  final bool draggableBody, toggleVisibilityOnTap, canUserSwipe, autoSwipped;
+  final bool draggableBody, headerVisibilityOnTap, autoSwipped, gradientOpacity;
   final Widget? header;
   final Widget body;
   final void Function()? onShow;
   final void Function()? onHide;
-  const DraggableBottomSheet(
+  DraggableBottomSheet(
       {super.key,
-      this.smoothness = Smoothness.low,
       this.maxHeight = 500,
       this.minHeight = 0,
       this.header,
       this.autoSwipped = true,
       this.draggableBody = true,
-      this.toggleVisibilityOnTap = false,
-      this.canUserSwipe = true,
+      this.gradientOpacity = true,
+      this.headerVisibilityOnTap = true,
       this.onHide,
       this.onShow,
-      required this.body});
-
-  @override
-  Widget build(BuildContext context) {
+      required this.body}) {
+    if (!GetInstance().isRegistered<BottomSheetController>()) {
+      Get.put(BottomSheetController());
+    }
     Get.find<BottomSheetController>().maxHeight = maxHeight;
     Get.find<BottomSheetController>().minHeight = minHeight;
     Get.find<BottomSheetController>().autoSwipped = autoSwipped;
-    return SolidBottomSheet(
-      controller: Get.find<BottomSheetController>().controller,
-      draggableBody: draggableBody,
-      smoothness: smoothness,
-      toggleVisibilityOnTap: toggleVisibilityOnTap,
-      canUserSwipe: canUserSwipe,
-      onHide: onHide,
-      onShow: onShow,
-      autoSwiped: autoSwipped,
-      maxHeight: maxHeight,
-      minHeight: minHeight,
-      headerBar: header ?? const SizedBox(),
-      body: SingleChildScrollView(
-        child: body,
-      ),
-    );
+  }
+
+  @override
+  Widget build(BuildContext context) {
+    return GetBuilder<BottomSheetController>(builder: (bottomSheetController) {
+      return Positioned(
+        bottom: 0,
+        child: SizedBox(
+          width: MediaQuery.of(context).size.width,
+          child: Column(
+            children: [
+              if (headerVisibilityOnTap || !BottomSheetPanel.isExpanded)
+                DraggableArea(child: header ?? const SizedBox()),
+              AnimatedOpacity(
+                duration: const Duration(milliseconds: 100),
+                opacity: !gradientOpacity
+                    ? 1
+                    : bottomSheetController.percentHeight,
+                child: AnimatedContainer(
+                  duration: const Duration(milliseconds: 100),
+                  width: MediaQuery.of(context).size.width,
+                  height: bottomSheetController.currentHeight,
+                  child: SingleChildScrollView(
+                    child: draggableBody ? DraggableArea(child: body) : body,
+                  ),
+                ),
+              ),
+            ],
+          ),
+        ),
+      );
+    });
   }
 }

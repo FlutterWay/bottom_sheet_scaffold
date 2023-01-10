@@ -32,54 +32,56 @@ class _MyHomePageState extends State<MyHomePage> {
   @override
   Widget build(BuildContext context) {
     return BottomSheetScaffold(
+      draggableBody: true,
+      backgroundColor: Colors.white,
+      
       bottomSheet: DraggableBottomSheet(
+        draggableBody: true,
+        gradientOpacity: true,
+        maxHeight: MediaQuery.of(context).size.height,
         body: Container(
-          height: 500,
+          height: MediaQuery.of(context).size.height,
           color: Colors.red,
           child: const Center(
               child: Text(
-            "Bottom Sheet",
-            style: TextStyle(fontSize: 36, color: Colors.white),
-          )),
-        ),
-        header: Container(
-          height: 60,
-          color: Colors.blue,
-          child: const Center(
-              child: Text(
-            "Drag me",
-            style: TextStyle(color: Colors.white),
+            'Gradient Opacity',
+            style: TextStyle(fontSize: 24, color: Colors.white),
           )),
         ),
       ),
       appBar: AppBar(
-        title: const Text("My AppBar"),
+        title: const Text("Bottom Sheet Scaffold"),
       ),
       body: Center(
         child: Column(
-          mainAxisAlignment: MainAxisAlignment.center,
-          children: const <Widget>[
-            Text(
+          mainAxisAlignment: MainAxisAlignment.start,
+          children: <Widget>[
+            const SizedBox(
+              height: 100,
+            ),
+            BottomSheetBuilder(
+              builder: (status, context) {
+                return MaterialButton(
+                  color: Colors.blue,
+                  onPressed: () {
+                    if (BottomSheetPanel.isExpanded) {
+                      BottomSheetPanel.close();
+                    } else {
+                      BottomSheetPanel.open();
+                    }
+                  },
+                  child: Icon(!status.isExpanded
+                      ? Icons.open_in_browser
+                      : Icons.close_fullscreen),
+                );
+              },
+            ),
+            const Text(
               'Body of scaffold',
+              style: TextStyle(fontSize: 18),
             ),
           ],
         ),
-      ),
-      floatingActionButton: BottomSheetBuilder(
-        builder: (status, context) {
-          return FloatingActionButton(
-            onPressed: () {
-              if (BottomSheetPanel.isExpanded) {
-                BottomSheetPanel.close();
-              } else {
-                BottomSheetPanel.open();
-              }
-            },
-            child: Icon(!status.isExpanded
-                ? Icons.open_in_browser
-                : Icons.close_fullscreen),
-          );
-        },
       ),
     );
   }
