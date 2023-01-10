@@ -17,7 +17,7 @@ Slide your bottom sheet by sliding the body of the scaffold!. Very simple and cu
             <td style="text-align: center">
                 <table>
                  <tr>
-                 	<h2>Auto Swipping</h2>
+                 	<h3>Auto Swipping</h3>
                     <img src="https://raw.githubusercontent.com/FlutterWay/files/main/bottom_sheet_auto_swipping.gif" width="150" />
                   </tr>
                 </table>
@@ -25,7 +25,7 @@ Slide your bottom sheet by sliding the body of the scaffold!. Very simple and cu
             <td style="text-align: center">
                 <table>
                  <tr>
-                 	<h2>Auto Swipping Closed</h2>
+                 	<h3>Auto Swipping Closed</h3>
                     <img src="https://raw.githubusercontent.com/FlutterWay/files/main/bottom_sheet_auto_swipping_closed.gif" width="150" />
                   </tr>
                 </table>
@@ -33,7 +33,7 @@ Slide your bottom sheet by sliding the body of the scaffold!. Very simple and cu
             <td style="text-align: center">
                 <table>
                  <tr>
-                 	<h2>Gradient Opacity</h2>
+                 	<h3>Gradient Opacity</h3>
                     <img src="https://raw.githubusercontent.com/FlutterWay/files/main/bottom_sheet_gradient_opacity.gif" width="150" />
                   </tr>
                 </table>
@@ -41,7 +41,7 @@ Slide your bottom sheet by sliding the body of the scaffold!. Very simple and cu
             <td style="text-align: center">
                 <table>
                  <tr>
-                 	<h2>No Header</h2>
+                 	<h3>No Header</h3>
                     <img src="https://raw.githubusercontent.com/FlutterWay/files/main/bottom_sheet_no_header.gif" width="150" />
                   </tr>
                 </table>
@@ -49,7 +49,7 @@ Slide your bottom sheet by sliding the body of the scaffold!. Very simple and cu
             <td style="text-align: center">
                 <table>
                  <tr>
-                 	<h2>No Barrier</h2>
+                 	<h3>No Barrier</h3>
                     <img src="https://github.com/FlutterWay/files/blob/main/bottom_sheet_no_barrier.gif" width="150" />
                   </tr>
                 </table>
