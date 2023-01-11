@@ -32,25 +32,26 @@ class _MyHomePageState extends State<MyHomePage> {
   @override
   Widget build(BuildContext context) {
     return BottomSheetScaffold(
-      draggableBody: true,
-      backgroundColor: Colors.white,
-      
       bottomSheet: DraggableBottomSheet(
-        draggableBody: true,
-        gradientOpacity: true,
-        maxHeight: MediaQuery.of(context).size.height,
-        body: Container(
-          height: MediaQuery.of(context).size.height,
-          color: Colors.red,
+        body: const Center(
+            child: Text(
+          "Bottom Sheet",
+          style: TextStyle(fontSize: 36, color: Colors.black),
+        )),
+        header: Container(
+          height: 60,
+          color: Colors.blue,
           child: const Center(
               child: Text(
-            'Gradient Opacity',
-            style: TextStyle(fontSize: 24, color: Colors.white),
+            "Drag me",
+            style: TextStyle(color: Colors.white),
           )),
         ),
       ),
       appBar: AppBar(
-        title: const Text("Bottom Sheet Scaffold"),
+        title: const Text(
+          "My AppBar",
+        ),
       ),
       body: Center(
         child: Column(
@@ -78,7 +79,6 @@ class _MyHomePageState extends State<MyHomePage> {
             ),
             const Text(
               'Body of scaffold',
-              style: TextStyle(fontSize: 18),
             ),
           ],
         ),

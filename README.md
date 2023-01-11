@@ -7,6 +7,7 @@ Slide your bottom sheet by sliding the body of the scaffold!. Very simple and cu
 - Easy usage
 - Manage bottom sheet height by sliding the body of the scaffold
 - Draggable bottom sheet body
+- Animated Opacity
 - Full customizable
 - Listen bottom sheet status by using BottomSheetBuilder
 - No need to set any header to slide bottom sheet
@@ -17,16 +18,16 @@ Slide your bottom sheet by sliding the body of the scaffold!. Very simple and cu
             <td style="text-align: center">
                 <table>
                  <tr>
-                 	<h4>Auto Swipping</h4>
-                    <img src="https://raw.githubusercontent.com/FlutterWay/files/main/bottom_sheet_auto_swipping.gif" width="150" />
+                 	<h4>Scaffold Swipping</h4>
+                    <img src="https://raw.githubusercontent.com/FlutterWay/files/main/bottom_sheet_swipping_with_scaffold_body.gif" width="150" />
                   </tr>
                 </table>
             </td>   
             <td style="text-align: center">
                 <table>
                  <tr>
-                 	<h4>Auto Swipping Closed</h4>
-                    <img src="https://raw.githubusercontent.com/FlutterWay/files/main/bottom_sheet_auto_swipping_closed.gif" width="150" />
+                 	<h4>Header Swipping</h4>
+                    <img src="https://raw.githubusercontent.com/FlutterWay/files/main/bottom_sheet_swipping_with_header.gif" width="150" />
                   </tr>
                 </table>
             </td>   
@@ -34,23 +35,23 @@ Slide your bottom sheet by sliding the body of the scaffold!. Very simple and cu
                 <table>
                  <tr>
                  	<h4>Gradient Opacity</h4>
-                    <img src="https://raw.githubusercontent.com/FlutterWay/files/main/bottom_sheet_gradient_opacity.gif" width="150" />
+                    <img src="https://github.com/FlutterWay/files/blob/main/bottom_sheet_gradient_opacity.gif" width="150" />
                   </tr>
                 </table>
             </td>   
             <td style="text-align: center">
                 <table>
                  <tr>
-                 	<h4>No Header</h4>
-                    <img src="https://raw.githubusercontent.com/FlutterWay/files/main/bottom_sheet_no_header.gif" width="150" />
+                 	<h4>Without Auto Swipping</h4>
+                    <img src="https://raw.githubusercontent.com/FlutterWay/files/main/bottom_sheet_auto_swipping_closed.gif" width="150" />
                   </tr>
                 </table>
             </td>   
             <td style="text-align: center">
                 <table>
                  <tr>
-                 	<h4>No Barrier</h4>
-                    <img src="https://github.com/FlutterWay/files/blob/main/bottom_sheet_no_barrier.gif" width="150" />
+                 	<h4>Custom</h4>
+                    <img src="https://raw.githubusercontent.com/FlutterWay/files/main/bottom_sheet_custom.gif" width="150" />
                   </tr>
                 </table>
             </td>   
@@ -65,6 +66,9 @@ Change your Scaffold into BottomSheetScaffold.
 
 ```dart
 BottomSheetScaffold(
+      draggableBody: true,
+      dismissOnClick: true,
+      barrierColor: Colors.black54,
       bottomSheet: DraggableBottomSheet(
         body: BottomSheetBody(),
         header: BottomSheetHeader(),//header is not required
@@ -79,19 +83,20 @@ BottomSheetScaffold(
 ## DraggableBottomSheet
 
 ```dart
-const DraggableBottomSheet(
+DraggableBottomSheet(
     {super.key,
-    this.smoothness = Smoothness.low,
     this.maxHeight = 500,
     this.minHeight = 0,
     this.header,
     this.autoSwipped = true,
     this.draggableBody = true,
-    this.toggleVisibilityOnTap = false,
-    this.canUserSwipe = true,
+    this.gradientOpacity = true,
+    this.headerVisibilityOnTap = true,
+    this.backgroundColor = Colors.white60,
     this.onHide,
+    this.radius = 30,
     this.onShow,
-    required this.body});
+    required this.body})
 ```
 
 ## BottomSheetPanel
@@ -192,16 +197,11 @@ class _MyHomePageState extends State<MyHomePage> {
   Widget build(BuildContext context) {
     return BottomSheetScaffold(
       bottomSheet: DraggableBottomSheet(
-        draggableBody: false,
-        body: Container(
-          height: 500,
-          color: Colors.red,
-          child: const Center(
-              child: Text(
-            "Bottom Sheet",
-            style: TextStyle(fontSize: 36, color: Colors.white),
-          )),
-        ),
+        body: const Center(
+            child: Text(
+          "Bottom Sheet",
+          style: TextStyle(fontSize: 36, color: Colors.black),
+        )),
         header: Container(
           height: 60,
           color: Colors.blue,
@@ -213,40 +213,41 @@ class _MyHomePageState extends State<MyHomePage> {
         ),
       ),
       appBar: AppBar(
-        title: const Text("My AppBar"),
+        title: const Text(
+          "My AppBar",
+        ),
       ),
       body: Center(
         child: Column(
-          mainAxisAlignment: MainAxisAlignment.center,
-          children: const <Widget>[
-            Text(
+          mainAxisAlignment: MainAxisAlignment.start,
+          children: <Widget>[
+            const SizedBox(
+              height: 100,
+            ),
+            BottomSheetBuilder(
+              builder: (status, context) {
+                return MaterialButton(
+                  color: Colors.blue,
+                  onPressed: () {
+                    if (BottomSheetPanel.isExpanded) {
+                      BottomSheetPanel.close();
+                    } else {
+                      BottomSheetPanel.open();
+                    }
+                  },
+                  child: Icon(!status.isExpanded
+                      ? Icons.open_in_browser
+                      : Icons.close_fullscreen),
+                );
+              },
+            ),
+            const Text(
               'Body of scaffold',
             ),
           ],
         ),
       ),
-      floatingActionButton: BottomSheetBuilder(
-        builder: (status, context) {
-          return FloatingActionButton(
-            onPressed: () {
-              if (BottomSheetPanel.isExpanded) {
-                BottomSheetPanel.close();
-              } else {
-                BottomSheetPanel.open();
-              }
-            },
-            child: Icon(!status.isExpanded
-                ? Icons.open_in_browser
-                : Icons.close_fullscreen),
-          );
-        },
-      ),
     );
   }
 }
-
 ```
-
-## Thanks to
-
-This package is built on [solid_bottom_sheet](https://pub.dev/packages/solid_bottom_sheet). Thanks to him for allowing us to develop this package.

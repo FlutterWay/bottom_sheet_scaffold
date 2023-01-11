@@ -35,7 +35,7 @@ class BottomSheetScaffold extends StatelessWidget {
     this.endDrawerEnableOpenDragGesture = true,
     this.restorationId,
   });
-  final Color? barrierColor;
+  final Color barrierColor;
   final bool dismissOnClick;
   final bool draggableBody;
   final Widget? body;
@@ -65,7 +65,6 @@ class BottomSheetScaffold extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    print(draggableBody);
     return WillPopScope(
       onWillPop: () async {
         if (BottomSheetPanel.isOpen) {
@@ -113,13 +112,13 @@ class BottomSheetScaffold extends StatelessWidget {
               onTap: dismissOnClick
                   ? Get.find<BottomSheetController>().close
                   : null,
-              child:
-                  GetBuilder<BottomSheetController>(builder: (controller) {
-                return Container(
+              child: GetBuilder<BottomSheetController>(builder: (controller) {
+                return AnimatedContainer(
+                    duration: Duration(milliseconds: 500),
                     width: double.infinity,
                     height: double.infinity,
                     color: BottomSheetPanel.isOpen
-                        ? barrierColor
+                        ? barrierColor.withOpacity(0.5)
                         : Colors.transparent,
                     child: body);
               }),

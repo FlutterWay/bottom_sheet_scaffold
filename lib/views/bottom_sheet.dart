@@ -10,6 +10,8 @@ class DraggableBottomSheet extends StatelessWidget {
   final Widget body;
   final void Function()? onShow;
   final void Function()? onHide;
+  final double radius;
+  final Color? backgroundColor;
   DraggableBottomSheet(
       {super.key,
       this.maxHeight = 500,
@@ -19,7 +21,9 @@ class DraggableBottomSheet extends StatelessWidget {
       this.draggableBody = true,
       this.gradientOpacity = true,
       this.headerVisibilityOnTap = true,
+      this.backgroundColor = Colors.white,
       this.onHide,
+      this.radius = 15,
       this.onShow,
       required this.body}) {
     if (!GetInstance().isRegistered<BottomSheetController>()) {
@@ -43,16 +47,19 @@ class DraggableBottomSheet extends StatelessWidget {
                 DraggableArea(child: header ?? const SizedBox()),
               AnimatedOpacity(
                 duration: const Duration(milliseconds: 100),
-                opacity: !gradientOpacity
-                    ? 1
-                    : bottomSheetController.percentHeight,
+                opacity:
+                    !gradientOpacity ? 1 : bottomSheetController.percentHeight,
                 child: AnimatedContainer(
                   duration: const Duration(milliseconds: 100),
                   width: MediaQuery.of(context).size.width,
                   height: bottomSheetController.currentHeight,
-                  child: SingleChildScrollView(
-                    child: draggableBody ? DraggableArea(child: body) : body,
+                  decoration: BoxDecoration(
+                    color: backgroundColor,
+                    borderRadius: header == null
+                        ? BorderRadius.vertical(top: Radius.circular(radius))
+                        : null,
                   ),
+                  child: draggableBody ? DraggableArea(child: body) : body,
                 ),
               ),
             ],
