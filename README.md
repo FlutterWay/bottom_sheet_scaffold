@@ -1,15 +1,17 @@
 # bottom_sheet_scaffold
 
-Slide your bottom sheet by sliding the body of the scaffold!. Very simple and customizable bottom sheet to implement.
+Slide your bottom sheet by sliding the body of the scaffold!. Very simple and customizable bottom sheet implementation.
+
+<img width=1200 src="https://raw.githubusercontent.com/FlutterWay/files/main/bottom_sheet_swipping_with_scaffold_body.gif" />
 
 ## Features
 
 - Easy usage
-- Manage bottom sheet height by sliding the body of the scaffold
+- Determine the height of the bottom sheet by sliding the body of the scaffold
 - Draggable bottom sheet body
 - Animated Opacity
-- Full customizable
-- Listen bottom sheet status by using BottomSheetBuilder
+- Fully customizable
+- Listen the status of bottom sheet by using BottomSheetBuilder
 - No need to set any header to slide bottom sheet
 
 <div style="text-align: center">
@@ -127,7 +129,7 @@ BottomSheetPanel.isCollapsed;
 ```
 
 ## DraggableArea
-If you set the parameter called draggableBody in DraggableBottomSheet to false, you will need the DraggableArea widget to scroll the bottom sheet.
+If you set the parameter "draggableBody" in DraggableBottomSheet to false, you will need the DraggableArea widget to scroll the bottom sheet.
 
 ```dart
 DraggableBottomSheet(

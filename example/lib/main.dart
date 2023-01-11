@@ -33,25 +33,12 @@ class _MyHomePageState extends State<MyHomePage> {
   Widget build(BuildContext context) {
     return BottomSheetScaffold(
       bottomSheet: DraggableBottomSheet(
+        maxHeight: 600,
         body: const Center(
             child: Text(
-          "Bottom Sheet",
+          "Bottom Sheet Scaffold",
           style: TextStyle(fontSize: 36, color: Colors.black),
         )),
-        header: Container(
-          height: 60,
-          color: Colors.blue,
-          child: const Center(
-              child: Text(
-            "Drag me",
-            style: TextStyle(color: Colors.white),
-          )),
-        ),
-      ),
-      appBar: AppBar(
-        title: const Text(
-          "My AppBar",
-        ),
       ),
       body: Center(
         child: Column(
@@ -60,25 +47,8 @@ class _MyHomePageState extends State<MyHomePage> {
             const SizedBox(
               height: 100,
             ),
-            BottomSheetBuilder(
-              builder: (status, context) {
-                return MaterialButton(
-                  color: Colors.blue,
-                  onPressed: () {
-                    if (BottomSheetPanel.isExpanded) {
-                      BottomSheetPanel.close();
-                    } else {
-                      BottomSheetPanel.open();
-                    }
-                  },
-                  child: Icon(!status.isExpanded
-                      ? Icons.open_in_browser
-                      : Icons.close_fullscreen),
-                );
-              },
-            ),
             const Text(
-              'Body of scaffold',
+              'Body of Scaffold',
             ),
           ],
         ),
