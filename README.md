@@ -42,7 +42,7 @@ Slide your bottom sheet by sliding the body of the scaffold!. Very simple and cu
             <td style="text-align: center">
                 <table>
                  <tr>
-                 	<h4>Without Auto Swipping</h4>
+                 	<h4>Fixed height</h4>
                     <img src="https://raw.githubusercontent.com/FlutterWay/files/main/bottom_sheet_auto_swipping_closed.gif" width="150" />
                   </tr>
                 </table>
