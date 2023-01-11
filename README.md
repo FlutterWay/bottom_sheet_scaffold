@@ -2,7 +2,7 @@
 
 Slide your bottom sheet by sliding the body of the scaffold!. Very simple and customizable bottom sheet implementation.
 
-<img width=1200 src="https://raw.githubusercontent.com/FlutterWay/files/main/bottom_sheet_swipping_with_scaffold_body.gif" />
+<img width=1200 src="https://raw.githubusercontent.com/FlutterWay/files/main/bottomsheet.png" />
 
 ## Features
 
