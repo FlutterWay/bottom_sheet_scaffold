@@ -35,7 +35,7 @@ Slide your bottom sheet by sliding the body of the scaffold!. Very simple and cu
                 <table>
                  <tr>
                  	<h4>Gradient Opacity</h4>
-                    <img src="https://github.com/FlutterWay/files/blob/main/bottom_sheet_gradient_opacity.gif" width="150" />
+                    <img src="https://raw.githubusercontent.com/FlutterWay/files/main/bottom_sheet_gradient_opacity.gif" width="150" />
                   </tr>
                 </table>
             </td>   
