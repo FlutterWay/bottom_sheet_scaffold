@@ -2,7 +2,7 @@
 
 Slide your bottom sheet by sliding the body of the scaffold!. Very simple and customizable bottom sheet implementation.
 
-<img width=1200 src="https://raw.githubusercontent.com/FlutterWay/files/main/bottomsheet.png" />
+<img width=1200 src="https://raw.githubusercontent.com/FlutterWay/files/main/bottom_sheet_views/bottomSheetPoster.png" />
 
 ## Features
 
@@ -21,7 +21,7 @@ Slide your bottom sheet by sliding the body of the scaffold!. Very simple and cu
                 <table>
                  <tr>
                  	<h4>Scaffold Swipping</h4>
-                    <img src="https://raw.githubusercontent.com/FlutterWay/files/main/bottom_sheet_swipping_with_scaffold_body.gif" width="150" />
+                    <img src="https://raw.githubusercontent.com/FlutterWay/files/main/bottom_sheet_views/bottom_sheet_swipping_with_scaffold_body.gif" width="150" />
                   </tr>
                 </table>
             </td>   
@@ -29,7 +29,7 @@ Slide your bottom sheet by sliding the body of the scaffold!. Very simple and cu
                 <table>
                  <tr>
                  	<h4>Header Swipping</h4>
-                    <img src="https://raw.githubusercontent.com/FlutterWay/files/main/bottom_sheet_swipping_with_header.gif" width="150" />
+                    <img src="https://raw.githubusercontent.com/FlutterWay/files/main/bottom_sheet_views/bottom_sheet_swipping_with_header.gif" width="150" />
                   </tr>
                 </table>
             </td>   
@@ -37,7 +37,7 @@ Slide your bottom sheet by sliding the body of the scaffold!. Very simple and cu
                 <table>
                  <tr>
                  	<h4>Gradient Opacity</h4>
-                    <img src="https://raw.githubusercontent.com/FlutterWay/files/main/bottom_sheet_gradient_opacity.gif" width="150" />
+                    <img src="https://raw.githubusercontent.com/FlutterWay/files/main/bottom_sheet_views/bottom_sheet_gradient_opacity.gif" width="150" />
                   </tr>
                 </table>
             </td>   
@@ -45,7 +45,7 @@ Slide your bottom sheet by sliding the body of the scaffold!. Very simple and cu
                 <table>
                  <tr>
                  	<h4>Fixed height</h4>
-                    <img src="https://raw.githubusercontent.com/FlutterWay/files/main/bottom_sheet_auto_swipping_closed.gif" width="150" />
+                    <img src="https://raw.githubusercontent.com/FlutterWay/files/main/bottom_sheet_views/bottom_sheet_auto_swipping_closed.gif" width="150" />
                   </tr>
                 </table>
             </td>   
@@ -53,7 +53,7 @@ Slide your bottom sheet by sliding the body of the scaffold!. Very simple and cu
                 <table>
                  <tr>
                  	<h4>Custom</h4>
-                    <img src="https://raw.githubusercontent.com/FlutterWay/files/main/bottom_sheet_custom.gif" width="150" />
+                    <img src="https://raw.githubusercontent.com/FlutterWay/files/main/bottom_sheet_views/bottom_sheet_custom.gif" width="150" />
                   </tr>
                 </table>
             </td>   
