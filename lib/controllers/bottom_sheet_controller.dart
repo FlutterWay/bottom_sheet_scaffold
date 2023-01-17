@@ -9,7 +9,7 @@ class BottomSheetController extends GetxController {
   double currentHeight = 0;
   bool autoSwipped = true;
   get percentHeight => currentHeight / maxHeight;
-
+  void Function()? onHide, onShow;
   void updateBodyHeight(double height) {
     bodyHeight = height;
   }
@@ -36,8 +36,14 @@ class BottomSheetController extends GetxController {
     if (autoSwipped) {
       if (diff > 0) {
         currentHeight = maxHeight;
+        if (onShow != null) {
+          onShow!();
+        }
       } else {
         currentHeight = minHeight;
+        if (onHide != null) {
+          onHide!();
+        }
       }
     }
     positionY = -1;
@@ -51,11 +57,17 @@ class BottomSheetController extends GetxController {
 
   void open() {
     currentHeight = maxHeight;
+    if (onShow != null) {
+      onShow!();
+    }
     update();
   }
 
   void close() {
     currentHeight = minHeight;
+    if (onHide != null) {
+      onHide!();
+    }
     update();
   }
 }
