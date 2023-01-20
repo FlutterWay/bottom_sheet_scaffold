@@ -40,7 +40,8 @@ class DraggableBottomSheet extends StatelessWidget {
   Widget build(BuildContext context) {
     return GetBuilder<BottomSheetController>(builder: (bottomSheetController) {
       return Positioned(
-        bottom: 0,
+        bottom: bottomSheetController.currentHeight -
+            bottomSheetController.maxHeight,
         child: SizedBox(
           width: MediaQuery.of(context).size.width,
           child: Column(
@@ -54,7 +55,7 @@ class DraggableBottomSheet extends StatelessWidget {
                 child: AnimatedContainer(
                   duration: const Duration(milliseconds: 100),
                   width: MediaQuery.of(context).size.width,
-                  height: bottomSheetController.currentHeight,
+                  height: bottomSheetController.maxHeight,
                   decoration: BoxDecoration(
                     color: backgroundColor,
                     borderRadius: header == null

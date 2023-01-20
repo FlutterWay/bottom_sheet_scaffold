@@ -25,3 +25,7 @@
 ## 0.1.0
 
 * Fixed cases where onShow and onHide functions were not working properly
+
+## 0.1.1
+
+* Some visual improvements have been made
