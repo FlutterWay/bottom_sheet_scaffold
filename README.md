@@ -82,6 +82,32 @@ BottomSheetScaffold(
     )
 ```
 
+### You can customize OnWillPop of BottomSheet
+
+```dart
+BottomSheetScaffold(
+      draggableBody: true,
+      dismissOnClick: true,
+      onWillPop: (() async {
+        if (BottomSheetPanel.isOpen) {
+          BottomSheetPanel.close();
+          return false;
+        } else {
+          return true;
+        }
+      }),
+      barrierColor: Colors.black54,
+      bottomSheet: DraggableBottomSheet(
+        body: BottomSheetBody(),
+        header: BottomSheetHeader(),//header is not required
+      ),
+      appBar: AppBar(
+        title: Text(widget.title),
+      ),
+      body: ScaffoldBody(),
+    )
+```
+
 ## DraggableBottomSheet
 
 ```dart

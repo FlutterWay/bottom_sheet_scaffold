@@ -29,3 +29,7 @@
 ## 0.1.1
 
 * Some visual improvements have been made
+
+## 0.1.2
+
+* Added parameter named "OnWillPop"

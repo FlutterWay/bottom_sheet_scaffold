@@ -34,6 +34,7 @@ class BottomSheetScaffold extends StatelessWidget {
     this.drawerEnableOpenDragGesture = true,
     this.endDrawerEnableOpenDragGesture = true,
     this.restorationId,
+    this.onWillPop,
   });
   final Color barrierColor;
   final bool dismissOnClick;
@@ -62,18 +63,19 @@ class BottomSheetScaffold extends StatelessWidget {
   final bool drawerEnableOpenDragGesture;
   final bool endDrawerEnableOpenDragGesture;
   final String? restorationId;
-
+  final Future<bool> Function()? onWillPop;
   @override
   Widget build(BuildContext context) {
     return WillPopScope(
-      onWillPop: () async {
-        if (BottomSheetPanel.isOpen) {
-          BottomSheetPanel.close();
-          return false;
-        } else {
-          return true;
-        }
-      },
+      onWillPop: onWillPop ??
+          () async {
+            if (BottomSheetPanel.isOpen) {
+              BottomSheetPanel.close();
+              return false;
+            } else {
+              return true;
+            }
+          },
       child: Scaffold(
         extendBody: extendBody,
         extendBodyBehindAppBar: extendBodyBehindAppBar,
