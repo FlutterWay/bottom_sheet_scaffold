@@ -33,3 +33,8 @@
 ## 0.1.2
 
 * Added parameter named "OnWillPop"
+
+## 0.1.3
+
+* Changes made in documentation
+

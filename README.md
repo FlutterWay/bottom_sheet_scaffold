@@ -188,7 +188,7 @@ DraggableBottomSheet(
       )
 ```
 ## BottomSheetBuilder
-When you set state in Scaffold's body, the bottom sheet will close. If you need to listen bottom sheet status to change something in your page, use BottomSheetBuilder.
+Use BottomSheetBuilder if you need to listen bottom sheet status to change something in your page.
 
 ```dart
 BottomSheetBuilder(
