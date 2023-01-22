@@ -1,6 +1,6 @@
 name: bottom_sheet_scaffold
 description: Slide your bottom sheet by sliding the body of the scaffold!. Very simple and customizable bottom sheet to implement.
-version: 0.1.3
+version: 0.1.4
 homepage: https://github.com/FlutterWay/bottom_sheet_scaffold
 
 environment:
