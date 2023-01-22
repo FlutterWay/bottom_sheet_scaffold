@@ -31,6 +31,9 @@ class DraggableBottomSheet extends StatelessWidget {
     }
     Get.find<BottomSheetController>().maxHeight = maxHeight;
     Get.find<BottomSheetController>().minHeight = minHeight;
+    if (minHeight > Get.find<BottomSheetController>().currentHeight) {
+      Get.find<BottomSheetController>().currentHeight = minHeight;
+    }
     Get.find<BottomSheetController>().autoSwipped = autoSwipped;
     Get.find<BottomSheetController>().onHide = onHide;
     Get.find<BottomSheetController>().onShow = onShow;
