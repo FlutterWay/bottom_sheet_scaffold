@@ -5,7 +5,7 @@ import 'package:get/get.dart';
 import '../controllers/bottom_sheet_controller.dart';
 
 class BottomSheetScaffold extends StatelessWidget {
-  const BottomSheetScaffold({
+  BottomSheetScaffold({
     super.key,
     this.body,
     this.appBar,
@@ -35,7 +35,10 @@ class BottomSheetScaffold extends StatelessWidget {
     this.endDrawerEnableOpenDragGesture = true,
     this.restorationId,
     this.onWillPop,
-  });
+    this.oneFingerScrolling = true,
+  }) {
+    Get.find<BottomSheetController>().oneFingerScrolling = oneFingerScrolling;
+  }
   final Color barrierColor;
   final bool dismissOnClick;
   final bool draggableBody;
@@ -62,6 +65,7 @@ class BottomSheetScaffold extends StatelessWidget {
   final double? drawerEdgeDragWidth;
   final bool drawerEnableOpenDragGesture;
   final bool endDrawerEnableOpenDragGesture;
+  final bool oneFingerScrolling;
   final String? restorationId;
   final Future<bool> Function()? onWillPop;
   @override
@@ -99,34 +103,42 @@ class BottomSheetScaffold extends StatelessWidget {
         primary: primary,
         backgroundColor: backgroundColor,
         bottomNavigationBar: bottomNavigationBar,
-        body: Stack(
-          children: [
-            GestureDetector(
-              onVerticalDragStart: draggableBody
-                  ? Get.find<BottomSheetController>().startDrag
-                  : null,
-              onVerticalDragUpdate: draggableBody
-                  ? Get.find<BottomSheetController>().updateDrag
-                  : null,
-              onVerticalDragEnd: draggableBody
-                  ? Get.find<BottomSheetController>().endDrag
-                  : null,
-              onTap: dismissOnClick
-                  ? Get.find<BottomSheetController>().close
-                  : null,
-              child: GetBuilder<BottomSheetController>(builder: (controller) {
-                return AnimatedContainer(
-                    duration: const Duration(milliseconds: 500),
-                    width: double.infinity,
-                    height: double.infinity,
-                    color: BottomSheetPanel.isOpen
-                        ? barrierColor.withOpacity(0.5)
-                        : Colors.transparent,
-                    child: body);
-              }),
-            ),
-            bottomSheet
-          ],
+        body: Listener(
+          onPointerDown: (_) => oneFingerScrolling
+              ? Get.find<BottomSheetController>().addPointer()
+              : null,
+          onPointerUp: (_) => oneFingerScrolling
+              ? Get.find<BottomSheetController>().removePointer()
+              : null,
+          child: Stack(
+            children: [
+              GestureDetector(
+                onVerticalDragStart: draggableBody
+                    ? Get.find<BottomSheetController>().startDrag
+                    : null,
+                onVerticalDragUpdate: draggableBody
+                    ? Get.find<BottomSheetController>().updateDrag
+                    : null,
+                onVerticalDragEnd: draggableBody
+                    ? Get.find<BottomSheetController>().endDrag
+                    : null,
+                onTap: dismissOnClick
+                    ? Get.find<BottomSheetController>().close
+                    : null,
+                child: GetBuilder<BottomSheetController>(builder: (controller) {
+                  return AnimatedContainer(
+                      duration: const Duration(milliseconds: 500),
+                      width: double.infinity,
+                      height: double.infinity,
+                      color: BottomSheetPanel.isOpen
+                          ? barrierColor.withOpacity(0.5)
+                          : Colors.transparent,
+                      child: body);
+                }),
+              ),
+              bottomSheet
+            ],
+          ),
         ),
       ),
     );

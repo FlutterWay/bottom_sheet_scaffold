@@ -46,3 +46,8 @@
 
 * Changes made
 
+## 0.1.6
+
+* Added the ability to scroll the bottomsheet with just one finger
+* Added oneFingerScrolling parameter
+
