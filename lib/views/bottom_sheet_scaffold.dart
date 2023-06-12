@@ -127,7 +127,8 @@ class BottomSheetScaffold extends StatelessWidget {
                     : null,
                 child: GetBuilder<BottomSheetController>(builder: (controller) {
                   return AnimatedContainer(
-                      duration: const Duration(milliseconds: 500),
+                      duration:
+                          Get.find<BottomSheetController>().animationDuration,
                       width: double.infinity,
                       height: double.infinity,
                       color: BottomSheetPanel.isOpen

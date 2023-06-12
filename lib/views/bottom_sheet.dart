@@ -8,6 +8,7 @@ class DraggableBottomSheet extends StatelessWidget {
   final bool draggableBody, headerVisibilityOnTap, autoSwipped, gradientOpacity;
   final Widget? header;
   final Widget body;
+  final Duration animationDuration;
   final void Function()? onShow;
   final void Function()? onHide;
   final double radius;
@@ -16,6 +17,7 @@ class DraggableBottomSheet extends StatelessWidget {
       {super.key,
       this.maxHeight = 500,
       this.minHeight = 0,
+      this.animationDuration = const Duration(milliseconds: 200),
       this.header,
       this.autoSwipped = true,
       this.draggableBody = true,
@@ -30,6 +32,7 @@ class DraggableBottomSheet extends StatelessWidget {
       Get.put(BottomSheetController());
     }
     Get.find<BottomSheetController>().maxHeight = maxHeight;
+    Get.find<BottomSheetController>().animationDuration = animationDuration;
     Get.find<BottomSheetController>().minHeight = minHeight;
     if (minHeight > Get.find<BottomSheetController>().currentHeight) {
       Get.find<BottomSheetController>().currentHeight = minHeight;
@@ -43,8 +46,7 @@ class DraggableBottomSheet extends StatelessWidget {
   Widget build(BuildContext context) {
     return GetBuilder<BottomSheetController>(builder: (bottomSheetController) {
       return Positioned(
-        bottom: bottomSheetController.currentHeight -
-            bottomSheetController.maxHeight,
+        bottom: 0,
         child: SizedBox(
           width: MediaQuery.of(context).size.width,
           child: Column(
@@ -52,13 +54,23 @@ class DraggableBottomSheet extends StatelessWidget {
               if (headerVisibilityOnTap || !BottomSheetPanel.isExpanded)
                 DraggableArea(child: header ?? const SizedBox()),
               AnimatedOpacity(
-                duration: const Duration(milliseconds: 100),
+                duration: (bottomSheetController.currentHeight ==
+                            bottomSheetController.maxHeight ||
+                        bottomSheetController.currentHeight ==
+                            bottomSheetController.minHeight)
+                    ? animationDuration
+                    : const Duration(milliseconds: 100),
                 opacity:
                     !gradientOpacity ? 1 : bottomSheetController.percentHeight,
                 child: AnimatedContainer(
-                  duration: const Duration(milliseconds: 100),
+                  duration: (bottomSheetController.currentHeight ==
+                              bottomSheetController.maxHeight ||
+                          bottomSheetController.currentHeight ==
+                              bottomSheetController.minHeight)
+                      ? animationDuration
+                      : Duration.zero,
                   width: MediaQuery.of(context).size.width,
-                  height: bottomSheetController.maxHeight,
+                  height: bottomSheetController.currentHeight,
                   decoration: BoxDecoration(
                     color: backgroundColor,
                     borderRadius: header == null

@@ -33,6 +33,7 @@ class _MyHomePageState extends State<MyHomePage> {
   Widget build(BuildContext context) {
     return BottomSheetScaffold(
       bottomSheet: DraggableBottomSheet(
+        animationDuration: const Duration(milliseconds: 200),
         body: const Center(
             child: Text(
           "Bottom Sheet",

@@ -72,6 +72,7 @@ BottomSheetScaffold(
       dismissOnClick: true,
       barrierColor: Colors.black54,
       bottomSheet: DraggableBottomSheet(
+        animationDuration: Duration(milliseconds: 200),
         body: BottomSheetBody(),
         header: BottomSheetHeader(),//header is not required
       ),
@@ -98,6 +99,7 @@ BottomSheetScaffold(
       }),
       barrierColor: Colors.black54,
       bottomSheet: DraggableBottomSheet(
+        animationDuration: Duration(milliseconds: 200),
         body: BottomSheetBody(),
         header: BottomSheetHeader(),//header is not required
       ),
@@ -116,6 +118,7 @@ DraggableBottomSheet(
     this.maxHeight = 500,
     this.minHeight = 0,
     this.header,
+    this.animationDuration = const Duration(milliseconds: 200),
     this.autoSwipped = true,
     this.draggableBody = true,
     this.gradientOpacity = true,
