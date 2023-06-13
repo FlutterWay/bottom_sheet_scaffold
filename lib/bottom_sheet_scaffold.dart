@@ -6,6 +6,7 @@ export 'views/bottom_sheet.dart';
 export 'views/bottom_sheet_scaffold.dart';
 export 'views/draggable_area.dart';
 export 'views/bottom_sheet_builder.dart';
+export 'views/barrier_viewer.dart';
 
 class BottomSheetPanel {
   static void open() {

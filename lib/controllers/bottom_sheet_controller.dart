@@ -8,6 +8,7 @@ class BottomSheetController extends GetxController {
   double bodyHeight = 0;
   double maxHeight = 500, minHeight = 0;
   double currentHeight = 0;
+  late Color barrierColor;
   late Duration animationDuration;
   bool autoSwipped = true;
   bool fromTwoFinger = false;

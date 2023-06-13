@@ -110,6 +110,39 @@ BottomSheetScaffold(
     )
 ```
 
+## Barrier not being displayed in scaffold to be used inside
+If you use Scaffold inside BottomSheetScaffold, you should wrap the body of the Scaffold with BarrierViewer. This way you can display the barrier color you defined when the bottom sheet is opened
+
+```dart
+return BottomSheetScaffold(
+      bottomSheet: DraggableBottomSheet(
+        animationDuration: const Duration(milliseconds: 200),
+        body: const Center(
+            child: Text(
+          "Bottom Sheet",
+          style: TextStyle(fontSize: 36, color: Colors.black),
+        )),
+        header: Container(
+          height: 60,
+          color: Colors.blue,
+          child: const Center(
+              child: Text(
+            "Drag me",
+            style: TextStyle(color: Colors.white),
+          )),
+        ),
+      ),
+      appBar: AppBar(
+        title: const Text(
+          "My AppBar",
+        ),
+      ),
+      body: Scaffold(
+        body: BarrierViewer(
+          child: Center(
+            child: Column(
+```
+
 ## DraggableBottomSheet
 
 ```dart

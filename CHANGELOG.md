@@ -56,3 +56,6 @@
 * Dart 3 & Flutter 3.10 compatibility
 * Added 'animationDuration' parameter to DraggableBottomSheet to change the animation duration of bottomsheet
 
+## 0.1.8
+
+* BarrierViewer has been added

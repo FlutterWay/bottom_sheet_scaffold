@@ -38,6 +38,7 @@ class BottomSheetScaffold extends StatelessWidget {
     this.oneFingerScrolling = true,
   }) {
     Get.find<BottomSheetController>().oneFingerScrolling = oneFingerScrolling;
+    Get.find<BottomSheetController>().barrierColor = barrierColor;
   }
   final Color barrierColor;
   final bool dismissOnClick;
