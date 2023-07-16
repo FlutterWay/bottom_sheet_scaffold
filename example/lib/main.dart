@@ -1,6 +1,6 @@
-import 'package:flutter/material.dart';
 // ignore: depend_on_referenced_packages
 import 'package:bottom_sheet_scaffold/bottom_sheet_scaffold.dart';
+import 'package:flutter/material.dart';
 
 void main() {
   runApp(const MyApp());
@@ -34,11 +34,14 @@ class _MyHomePageState extends State<MyHomePage> {
     return BottomSheetScaffold(
       bottomSheet: DraggableBottomSheet(
         animationDuration: const Duration(milliseconds: 200),
-        body: const Center(
-            child: Text(
-          "Bottom Sheet",
-          style: TextStyle(fontSize: 36, color: Colors.black),
-        )),
+        body: Container(
+            width: double.infinity,
+            height: 500,
+            alignment: Alignment.center,
+            child: const Text(
+              "Bottom Sheet",
+              style: TextStyle(fontSize: 36, color: Colors.black),
+            )),
         header: Container(
           height: 60,
           color: Colors.blue,

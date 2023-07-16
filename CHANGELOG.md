@@ -59,3 +59,8 @@
 ## 0.1.8
 
 * BarrierViewer has been added
+
+## 0.1.9
+
+* Fixed overflow error when closing bottom sheet
+* BottomSheet body has wrapped with SingleChildScrollView

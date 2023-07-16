@@ -117,11 +117,14 @@ If you use Scaffold inside BottomSheetScaffold, you should wrap the body of the 
 return BottomSheetScaffold(
       bottomSheet: DraggableBottomSheet(
         animationDuration: const Duration(milliseconds: 200),
-        body: const Center(
-            child: Text(
-          "Bottom Sheet",
-          style: TextStyle(fontSize: 36, color: Colors.black),
-        )),
+        body: Container(
+            width: double.infinity,
+            height: 500,
+            alignment: Alignment.center,
+            child: const Text(
+              "Bottom Sheet",
+              style: TextStyle(fontSize: 36, color: Colors.black),
+            )),
         header: Container(
           height: 60,
           color: Colors.blue,

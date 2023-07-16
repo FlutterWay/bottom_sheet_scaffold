@@ -1,6 +1,7 @@
 import 'package:bottom_sheet_scaffold/bottom_sheet_scaffold.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
+
 import '../controllers/bottom_sheet_controller.dart';
 
 class DraggableBottomSheet extends StatelessWidget {
@@ -77,7 +78,10 @@ class DraggableBottomSheet extends StatelessWidget {
                         ? BorderRadius.vertical(top: Radius.circular(radius))
                         : null,
                   ),
-                  child: draggableBody ? DraggableArea(child: body) : body,
+                  child: SingleChildScrollView(
+                    padding: EdgeInsets.zero,
+                    child: draggableBody ? DraggableArea(child: body) : body,
+                  ),
                 ),
               ),
             ],
